@@ -2,8 +2,7 @@ const mongoose = require("mongoose")
 
 var courseSchema = new mongoose.Schema({
     courseName : {
-        type : String,
-        required : "Required"
+        type : String
     },
     courseId : {
         type: Number
@@ -14,4 +13,4 @@ var courseSchema = new mongoose.Schema({
 
 })
 
-mongoose.model("course", courseSchema)
+mongoose.model("courses", courseSchema)
