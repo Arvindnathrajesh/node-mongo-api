@@ -7,7 +7,6 @@ const courseModel = mongoose.model("courses")
 
 router.get('/list',(req,res)=>{
 
-    console.log(req.body);
     courseModel.find((err,docs)=>{
 
         if(!err)

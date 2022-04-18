@@ -4,10 +4,11 @@ const application = express()
 const connection = require("./model")
 const bodyParser= require("body-parser")
 const path = require("path")
-// const expressHandlebars = require("express-handlebars")
 const { engine } = require ('express-handlebars');
-const courseController = require("./controllers/courses")
+require("./model/User")
 
+const courseController = require("./controllers/courses")
+const authController = require("./controllers/auth")
 
 
 application.use(bodyParser.urlencoded({
@@ -26,7 +27,9 @@ application.get("/",(req,res)=>{
     res.send("index")
 })
 
+application.use(express.json())
 application.use("/course",courseController)
+application.use("/api/auth", authController)
 
 application.listen("3000",()=>{
     console.log("Server Up")
